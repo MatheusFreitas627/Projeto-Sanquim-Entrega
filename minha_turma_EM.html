@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minha Turma</title>
+  <link rel="stylesheet" href="minha_turma.css">
+</head>
+<body>
+  <div class="painel">
+    <nav class="menu-lateral">
+      <button onclick="window.location.href='meu_curso_EM.html'"><b>Meu Curso</b></button>
+   <button onclick="window.location.href='avisos_tela_aluno.html'"><b>Avisos</b></button>
+      <button onclick="window.location.href='meus_professores_EM.html'"><b>Meus Professores</b></button>
+      <button onclick="window.location.href='historico_EM.html'"><b>Histórico</b></button>
+      <button onclick="window.location.href='secretaria_academica_aluno.html'"><b>Secretaria Acadêmica</b></button>
+      <button onclick="window.location.href='materiais_didaticos_aluno.html'"><b>Materiais Didáticos</b></button>
+      <button onclick="window.location.href='faltas_EM.html'"><b>Disciplinas/Faltas</b></button>
+      <button onclick="window.location.href='mural_de_notas_EM.html'"><b>Mural de Notas</b></button>
+    </nav>
+  </div>
+    <a href="tela_principal_aluno.html">
+        <img src="logo_sanquim.webp" alt="Logo Colégio" class="logo-inferior">
+    </a>
+
+  <div class="conteudo">
+    <div class="topo">
+      <button class="sair" onclick="window.location.href='Tela_Login.html'"><b>Sair</b></button>
+    </div>
+
+    <h2>Minha Turma</h2>
+
+    <div class="formulario">
+      <h3>Curso: Ensino Médio</h3>
+      <p><strong>Período:</strong> Matutino</p>
+      <p><strong>Série:</strong> 1º Ano</p>
+      <p><strong>Sala:</strong> 301</p>
+      <p><strong>Quantidade:</strong> 30 Alunos</p>
+      <p><strong>Coordenador Pedagógico:</strong> Carlos</p>
+
+      <h3 style="margin-top: 30px;">Disciplinas e Professores</h3>
+      <div style="display: flex; flex-wrap: wrap; gap: 16px;">
+        <div class="disciplina" style="background: #f2f2f2; border: 1px solid black; border-radius: 8px; padding: 10px; flex: 1 1 230px;">
+          <h4>Língua Portuguesa - Ana</h4>
+          <h4>Inglês - Bruno</h4>
+          <h4>Matemática - Carlos</h4>
+          <h4>Física - Douglas</h4>
+          <h4>Quimíca - Eduardo</h4>
+          <h4>Biologia - Felipe</h4>
+          <h4>Geografia - Guilherme</h4>
+          <h4>História - Heloá</h4>
+          <h4>Educação Física - Igor</h4>
+        </div>
+      </div>
+
+      <div class="formulario" style="text-align: center; margin-top: 30px;">
+        <button class="botao">Baixar Grade de Horários</button>
+        <button class="botao" style="background-color: red; border: 2px solid black;" onmouseover="this.style.backgroundColor='rgb(196,3,3)'" onmouseout="this.style.backgroundColor='red'">Trocar de Turma</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

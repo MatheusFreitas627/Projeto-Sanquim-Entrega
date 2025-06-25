@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro de Turma</title>
+  <link rel="stylesheet" href="cadastrar_turma.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="painel">
+    <nav class="menu-lateral">
+      <button onclick="window.location.href='cadastro.html'"><b> Cadastrar Novos Usuários</b></button>
+      <button onclick="window.location.href='cadastrar_curso.html'"><b> Cadastrar Novos Cursos</b></button>
+      <button onclick="window.location.href='cadastrar_disciplina.html'"><b> Cadastrar Novas Disciplinas</b></button>
+      <button onclick="window.location.href='matricula.html'"><b> Matricular Aluno</b></button>
+      <button onclick="window.location.href='aviso_professores.html'"><b> Avisos Professores</b></button>
+      <button onclick="window.location.href='aviso_alunos.html'"><b> Aviso Alunos</b></button>
+      <button onclick="window.location.href='enalamento_turmas.html'"><b> Enalamento de Aluno/Turmas</b></button>
+      <button onclick="window.location.href='gestao_professores.html'"><b> Gestão de Professores</b></button>
+      <button onclick="window.location.href='gerenciar_media.html'"><b> Fechamento de Média</b></button>
+      <button onclick="window.location.href='gerenciar_frequencia.html'"><b> Gerenciamento de Frequência</b></button>
+  <button onclick="window.location.href='plano_aula_coordenador.html'"><b> Plano de Aula</b></button>
+    </nav>
+    <a href="tela_principal_coordenador.html">
+      <img src="logo_sanquim.webp" alt="Logo Colégio" class="logo-inferior" />
+    </a>
+  </div>
+
+  <div class="conteudo">
+    <div class="topo">
+      <button class="sair" onclick="window.location.href='Tela_Login.html'"><b>Sair</b></button>
+    </div>
+
+    <h2>Cadastro de Turma</h2>
+    <form id="formTurma" class="formulario">
+      <label for="tipoCurso">Tipo do Curso</label>
+      <select id="tipoCurso" name="tipoCurso" required>
+        <option value="">Selecione</option>
+        <option>Ensino Médio</option>
+        <option>Pré-Vestibular</option>
+        <option>Pré-Vestibulinho</option>
+        <option>Empreendedorismo</option>
+      </select>
+
+      <label for="nomeTurma">Nome da Turma</label>
+      <input type="text" id="nomeTurma" name="nomeTurma" required placeholder="Digite o nome da turma">
+
+      <label for="serie">Série</label>
+      <input type="text" id="serie" name="serie" placeholder="Digite a série da turma">
+
+      <label for="periodo">Período</label>
+      <select id="periodo" name="periodo" required>
+        <option value="">Selecione o período</option>
+        <option>Matutino</option>
+        <option>Vespertino</option>
+        <option>Noturno</option>
+      </select>
+
+      <label for="data_inicio">Ano de Início</label>
+      <input type="date" id="data_inicio" name="data_inicio" required>
+
+      <label for="data_termino">Previsão de Término</label>
+      <input type="date" id="data_termino" name="data_termino" required>
+
+      <label for="professor">Professor Responsável</label>
+      <input type="text" id="professor" name="professor" required placeholder="Digite o nome do professor responsável">
+
+      <label for="num_alunos">Número de Alunos</label>
+      <input type="text" id="num_alunos" name="num_alunos" required placeholder="Digite o número máximo de alunos">
+
+      <button type="submit" class="botao">Cadastrar Turma</button>
+    </form>
+
+    <div class="usuarios-cadastrados">
+      <h3>Turmas Cadastradas</h3>
+      <div id="listaTurmas"></div>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById("formTurma");
+    const lista = document.getElementById("listaTurmas");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const tipo = document.getElementById("tipoCurso").value;
+      const nome = document.getElementById("nomeTurma").value;
+      const serie = document.getElementById("serie").value;
+      const periodo = document.getElementById("periodo").value;
+      const inicio = document.getElementById("data_inicio").value;
+      const termino = document.getElementById("data_termino").value;
+      const professor = document.getElementById("professor").value;
+      const alunos = document.getElementById("num_alunos").value;
+
+      const item = document.createElement("div");
+      item.className = "usuario-item";
+      item.innerHTML = `<strong>${nome}</strong><br>Curso: ${tipo}<br>Série: ${serie}<br>Período: ${periodo}<br>Início: ${inicio}<br>Término: ${termino}<br>Professor: ${professor}<br>Máximo de alunos: ${alunos}`;
+
+      lista.appendChild(item);
+      form.reset();
+    });
+  </script>
+</body>
+</html>

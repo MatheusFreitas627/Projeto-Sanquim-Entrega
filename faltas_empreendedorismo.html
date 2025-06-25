@@ -1,0 +1,136 @@
+<!DOCTYPE html> 
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Disciplina/Faltas</title>
+  <link rel="stylesheet" href="faltas.css">
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th, td {
+      border: 1px solid black;
+      padding: 10px;
+      text-align: center;
+    }
+
+    th {
+      background-color: #ffc31d;
+    }
+
+    .formulario {
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+  <div class="painel">
+    <nav class="menu-lateral">
+      <button><b>Meu Curso</b></button>
+      <button><b>Minha Turma</b></button>
+      <button><b>Avisos</b></button>
+      <button><b>Meus Professores</b></button>
+      <button><b>Histórico</b></button>
+      <button><b>Secretária Acadêmica</b></button>
+      <button><b>Materiais Didáticos</b></button>
+      <button><b>Mural de Notas</b></button>
+    </nav>
+    <img src="logo_sanquim.webp" alt="Logo Colégio" class="logo-inferior">
+  </div>
+
+  <div class="conteudo">
+    <div class="topo">
+      <button class="sair"><b>Sair</b></button>
+    </div>
+
+    <h2>DISCIPLINAS E FALTAS</h2>
+
+    <div class="formulario">
+      <table class="tabela-faltas">
+        <thead>
+          <tr>
+            <th>Disciplina</th>
+            <th>Aulas Totais</th>
+            <th>Aulas Dadas</th>
+            <th>Faltas</th>
+            <th>Faltas Permitidas</th>
+            <th>% Presença</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Gestão de Negócios</td>
+            <td>72</td>
+            <td>32</td>
+            <td>4</td>
+            <td>18</td>
+            <td class="presenca"></td>
+          </tr>
+          <tr>
+            <td>Marketing</td>
+            <td>60</td>
+            <td>28</td>
+            <td>2</td>
+            <td>15</td>
+            <td class="presenca"></td>
+          </tr>
+          <tr>
+            <td>Finanças</td>
+            <td>72</td>
+            <td>36</td>
+            <td>0</td>
+            <td>18</td>
+            <td class="presenca"></td>
+          </tr>
+          <tr>
+            <td>Ética</td>
+            <td>48</td>
+            <td>20</td>
+            <td>4</td>
+            <td>12</td>
+            <td class="presenca"></td>
+          </tr>
+          <tr>
+            <td>Empreendedorismo Digital</td>
+            <td>72</td>
+            <td>32</td>
+            <td>8</td>
+            <td>18</td>
+            <td class="presenca"></td>
+          </tr>
+          <tr>
+            <td>Sustentabilidade</td>
+            <td>60</td>
+            <td>26</td>
+            <td>2</td>
+            <td>15</td>
+            <td class="presenca"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script>
+    // Função para calcular e preencher % de presença
+    document.addEventListener("DOMContentLoaded", () => {
+      const linhas = document.querySelectorAll("tbody tr");
+
+      linhas.forEach(linha => {
+        const aulasDadas = parseInt(linha.cells[2].textContent);
+        const faltas = parseInt(linha.cells[3].textContent);
+        const celulaPresenca = linha.querySelector(".presenca");
+
+        const presenca = ((aulasDadas - faltas) / aulasDadas) * 100;
+        celulaPresenca.textContent = isNaN(presenca) ? "—" : `${presenca.toFixed(1)}%`;
+        celulaPresenca.style.color = presenca < 75 ? "red" : "green";
+        celulaPresenca.style.fontWeight = "bold";
+      });
+    });
+  </script>
+</body>
+</html>

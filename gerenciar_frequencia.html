@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gerenciamento de Frequência</title>
+  <link rel="stylesheet" href="gerenciar_frequencia.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="tela">
+    <div class="painel">
+      <nav class="menu-lateral">
+   <button onclick="window.location.href='cadastro.html'"><b> Cadastrar Novos Usuários</b></button>
+<button onclick="window.location.href='cadastrar_turma.html'"><b> Cadastrar Novas Turmas</b></button>
+<button onclick="window.location.href='cadastrar_curso.html'"><b> Cadastrar Novos Cursos</b></button>
+<button onclick="window.location.href='cadastrar_disciplina.html'"><b> Cadastrar Novas Disciplinas</b></button>
+<button onclick="window.location.href='matricula.html'"><b> Matricular Aluno</b></button>
+<button onclick="window.location.href='aviso_professores.html'"><b> Avisos Professores</b></button>
+<button onclick="window.location.href='aviso_alunos.html'"><b> Aviso Alunos</b></button>
+<button onclick="window.location.href='enalamento_turmas.html'"><b> Enalamento de Aluno/Turmas</b></button>
+<button onclick="window.location.href='gestao_professores.html'"><b> Gestão de Professores</b></button>
+<button onclick="window.location.href='gerenciar_media.html'"><b> Fechamento de Média</b></button>
+<button onclick="window.location.href='plano_aula_coordenador.html'"><b> Plano de Aula</b></button>
+      </nav>
+ <a href="tela_principal_coordenador.html">
+  <img src="logo_sanquim.webp" alt="Logo Colégio" class="logo-inferior" />
+</a>
+    </div>
+
+    <div class="conteudo">
+      <div class="topo">
+         <button class="sair" onclick="window.location.href='Tela_Login.html'"><b>Sair</b></button>
+      </div>
+
+      <div class="container">
+        <h1>Gerenciamento de Frequência — Bimestre</h1>
+
+        <form class="form-frequencia">
+          <label>Nome do Aluno:</label>
+          <input type="text" id="aluno" required>
+
+          <label>Turma:</label>
+          <input type="text" id="turma" required>
+
+          <label>Disciplina:</label>
+          <input type="text" id="disciplina" required>
+
+          <label>Data da Aula:</label>
+          <input type="date" id="data" required>
+
+          <label>Status:</label>
+          <select id="status" required>
+            <option value="Presente">Presente</option>
+            <option value="Falta">Falta</option>
+          </select>
+
+          <button type="submit" class="botao-frequencia">➕ Lançar Frequência</button>
+        </form>
+
+        <h2>Registros do Bimestre</h2>
+        <table id="tabelaFrequencia">
+          <thead>
+            <tr>
+              <th>Aluno</th>
+              <th>Turma</th>
+              <th>Disciplina</th>
+              <th>Data</th>
+              <th>Status</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+
+        <div class="resumo">
+          <h3>Resumo:</h3>
+          <p><strong>Frequência no Bimestre:</strong> <span id="freqBimestre">0%</span></p>
+          <p><strong>Frequência Anual:</strong> <span id="freqAno">0%</span></p>
+          <button id="fecharBimestre" class="botao-fechar">✅ Fechar Frequência do Bimestre</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script>
+  let registros = [];
+  let bloqueado = false;
+  let totalAno = 0;
+  let totalPresencasAno = 0;
+
+  const form = document.querySelector('.form-frequencia');
+  const tabela = document.querySelector('#tabelaFrequencia tbody');
+  const freqBimestre = document.getElementById('freqBimestre');
+  const freqAno = document.getElementById('freqAno');
+  const fecharBtn = document.getElementById('fecharBimestre');
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (bloqueado) {
+      alert("Frequência do bimestre já fechada!");
+      return;
+    }
+
+    const aluno = document.getElementById('aluno').value;
+    const turma = document.getElementById('turma').value;
+    const disciplina = document.getElementById('disciplina').value;
+    const data = document.getElementById('data').value;
+    const status = document.getElementById('status').value;
+
+    registros.push({ aluno, turma, disciplina, data, status });
+    totalAno++;
+    if (status === 'Presente') totalPresencasAno++;
+
+    atualizarTabela();
+    form.reset();
+  });
+
+  function atualizarTabela() {
+    tabela.innerHTML = '';
+    let presencas = 0;
+
+    registros.forEach((r, index) => {
+      const row = document.createElement('tr');
+
+      row.innerHTML = `
+        <td>${r.aluno}</td>
+        <td>${r.turma}</td>
+        <td>${r.disciplina}</td>
+        <td>${r.data}</td>
+        <td>
+          <select ${bloqueado ? "disabled" : ""} onchange="editarStatus(${index}, this.value)">
+            <option ${r.status === "Presente" ? "selected" : ""}>Presente</option>
+            <option ${r.status === "Falta" ? "selected" : ""}>Falta</option>
+          </select>
+        </td>
+        <td>
+          <button onclick="removerRegistro(${index})" ${bloqueado ? "disabled" : ""}>❌</button>
+        </td>
+      `;
+
+      tabela.appendChild(row);
+
+      if (r.status === 'Presente') presencas++;
+    });
+
+    let percBim = registros.length ? ((presencas / registros.length) * 100).toFixed(1) : 0;
+    let percAno = totalAno ? ((totalPresencasAno / totalAno) * 100).toFixed(1) : 0;
+
+    freqBimestre.textContent = percBim + "%";
+    freqAno.textContent = percAno + "%";
+  }
+
+  function editarStatus(index, novoStatus) {
+    registros[index].status = novoStatus;
+    if (novoStatus === 'Presente') {
+      totalPresencasAno++;
+    } else {
+      totalPresencasAno--;
+    }
+    atualizarTabela();
+  }
+
+  function removerRegistro(index) {
+    if (registros[index].status === 'Presente') totalPresencasAno--;
+    registros.splice(index, 1);
+    totalAno--;
+    atualizarTabela();
+  }
+
+  fecharBtn.addEventListener('click', () => {
+    if (bloqueado) {
+      alert("Já foi fechado!");
+      return;
+    }
+    bloqueado = true;
+    alert("Frequência do bimestre fechada com sucesso!");
+    atualizarTabela();
+  });
+</script>
+
+</body>
+</html>

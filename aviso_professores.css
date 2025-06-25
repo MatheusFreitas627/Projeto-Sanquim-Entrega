@@ -1,0 +1,232 @@
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f5d363;
+  }
+  
+  /* Estrutura principal em colunas */
+  .tela {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+  }
+  
+ 
+  .painel {
+    width: 250px;
+    background-color: #ffc31d;
+    padding: 20px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+
+  .menu-lateral button {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+    background-color: #1c8c94;
+    color: white;
+    padding: 10px;
+    border: 2px solid #136d72;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-family: 'Lucida Sans', sans-serif;
+  }
+  
+  .menu-lateral button:hover {
+    background-color: #157d86;
+  }
+  
+
+  .logo-inferior {
+    width: 230px;
+    height: auto;
+    opacity: 0.9;
+  }
+  
+
+  .conteudo {
+    flex: 1;
+    background-color: #f7d764;
+    padding: 30px 40px;
+    overflow-y: auto;
+  }
+  
+
+  .topo {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .acao {
+    background-color: #1c8c94;
+    color: white;
+    border: 2px solid #136d72;
+    padding: 10px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: 'Lucida Sans', sans-serif;
+  }
+  
+  .acao:hover {
+    background-color: #157d86;
+  }
+  
+  .sair {
+    background-color: red;
+    color: white;
+    border: 2px solid black;
+    padding: 10px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  .sair:hover {
+    background-color: rgb(196, 3, 3);
+  }
+
+  .container {
+    max-width: 900px;
+    margin: auto;
+  }
+  
+  h1 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 30px;
+  }
+  
+
+  .aviso-card {
+    background-color: #fff;
+    border-left: 6px solid #e74c3c;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+    transition: transform 0.2s ease;
+  }
+  
+  .aviso-card:hover {
+    transform: scale(1.01);
+  }
+  
+  .aviso-card h3 {
+    margin-top: 0;
+    color: #333;
+  }
+  
+  .data {
+    font-size: 0.85em;
+    color: #888;
+    margin-bottom: 10px;
+  }
+  
+
+  .categoria {
+    font-size: 0.9em;
+    font-weight: bold;
+    color: white;
+    background-color: #c0392b; 
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  
+  .categoria.info {
+    background-color: #2980b9;
+  }
+  
+  .categoria.evento {
+    background-color: #16a085;
+  }
+  
+
+  .botao-lido {
+    margin-top: 15px;
+    padding: 8px 16px;
+    border: none;
+    background-color: #2ecc71;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  .botao-lido:hover {
+    background-color: #27ae60;
+  }
+  
+
+  @media (max-width: 600px) {
+    .aviso-card {
+      padding: 15px;
+    }
+  
+    .botao-lido {
+      width: 100%;
+    }
+  
+    .topo {
+      flex-direction: column;
+      align-items: flex-end;
+    }
+  }
+
+.aviso-card.lido {
+    opacity: 0.6;
+    pointer-events: none;
+    transition: 0.3s ease;
+  }
+  
+  .aviso-card.lido .botao-lido {
+    background-color: gray;
+    cursor: default;
+  }
+  
+  .novo-aviso-area {
+    margin-bottom: 30px;
+  }
+  
+  .botao-novo {
+    background-color: #3498db;
+    color: white;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .botao-novo:hover {
+    background-color: #2980b9;
+  }
+  
+  .form-aviso {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 15px;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .form-aviso input,
+  .form-aviso select,
+  .form-aviso textarea {
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Plano de Aula</title>
+  <link rel="stylesheet" href="plano_aula.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="tela">
+    <div class="painel">
+      <nav class="menu-lateral">
+      <button onclick="window.location.href='cursos_professor.html'"><b>Cursos Que Leciono</b></button>
+      <button onclick="window.location.href='minhas_disciplinas.html'"><b>Minhas Disciplinas</b></button>
+      <button onclick="window.location.href='avisos.html'"><b>Avisos</b></button>
+           <button onclick="window.location.href='lancar_faltas.html'"> <b>Lançar Faltas</b></button>
+        <button onclick="window.location.href='lancar_notas.html'"> <b>Lançar Notas</b></button>
+      <button onclick="window.location.href='outros_professores.html'"><b>Outros Professores</b></button>
+      <button onclick="window.location.href='secretaria_academica.html'"><b>Secretaria Acadêmica</b></button>
+      <button onclick="window.location.href='materiais_didaticos.html'"><b>Materiais Didáticos</b></button>
+
+      </nav>
+       <a href="tela_principal_professor.html">
+  <img src="logo_sanquim.webp" alt="Logo Colégio" class="logo-inferior" />
+</a>
+    </div>
+    <div class="conteudo">
+      <div class="topo">
+  <button class="sair" onclick="window.location.href='Tela_Login.html'"><b>Sair</b></button>
+      </div>
+
+      <div class="container">
+        <h1>Plano de Aula</h1>
+
+        <form class="form-plano">
+          <label>Professor:</label>
+          <input type="text" id="professor" required>
+
+          <label>Turma:</label>
+          <input type="text" id="turma" required>
+
+          <label>Disciplina:</label>
+          <input type="text" id="disciplina" required>
+
+          <label>Data da Aula:</label>
+          <input type="date" id="data" required>
+
+          <label>Conteúdo Ministrado:</label>
+          <textarea id="conteudo" rows="3" required></textarea>
+
+          <button type="submit" class="botao-plano">➕ Inserir Plano</button>
+        </form>
+
+        <h2>Planos de Aula Registrados</h2>
+        <table id="tabelaPlano">
+          <thead>
+            <tr>
+              <th>Professor</th>
+              <th>Turma</th>
+              <th>Disciplina</th>
+              <th>Data</th>
+              <th>Conteúdo</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+<script>
+  let planos = [];
+
+  const form = document.querySelector('.form-plano');
+  const tabela = document.querySelector('#tabelaPlano tbody');
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const professor = document.getElementById('professor').value;
+    const turma = document.getElementById('turma').value;
+    const disciplina = document.getElementById('disciplina').value;
+    const data = document.getElementById('data').value;
+    const conteudo = document.getElementById('conteudo').value;
+
+    planos.push({ professor, turma, disciplina, data, conteudo });
+
+    atualizarTabela();
+    form.reset();
+  });
+
+  function atualizarTabela() {
+    tabela.innerHTML = '';
+
+    planos.forEach((p, index) => {
+      const row = document.createElement('tr');
+
+      row.innerHTML = `
+        <td>${p.professor}</td>
+        <td>${p.turma}</td>
+        <td>${p.disciplina}</td>
+        <td>${p.data}</td>
+        <td>
+          <textarea onchange="editarConteudo(${index}, this.value)">${p.conteudo}</textarea>
+        </td>
+        <td>
+          <button onclick="removerPlano(${index})">❌</button>
+        </td>
+      `;
+
+      tabela.appendChild(row);
+    });
+  }
+
+  function editarConteudo(index, novoConteudo) {
+    planos[index].conteudo = novoConteudo;
+  }
+
+  function removerPlano(index) {
+    planos.splice(index, 1);
+    atualizarTabela();
+  }
+</script>
+
+</body>
+</html>

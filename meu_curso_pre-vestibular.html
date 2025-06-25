@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meu Curso</title>
+  <link rel="stylesheet" href="meu_curso.css">
+</head>
+<body>
+  <div class="painel">
+    <nav class="menu-lateral">
+      <button><b>Minha Turma</b></button>
+      <button><b>Avisos</b></button>
+      <button><b>Meus Professores</b></button>
+      <button><b>Histórico</b></button>
+      <button><b>Secretária Acadêmica</b></button>
+      <button><b>Materiais Didáticos</b></button>
+      <button><b>Disciplina/Faltas</b></button>
+      <button><b>Mural de Notas</b></button>
+    </nav>
+    <img src="logo_sanquim.webp" alt="Logo Colégio" class="logo-inferior">
+  </div>
+
+  <div class="conteudo">
+    <div class="topo">
+      <button class="sair"><b>Sair</b></button>
+    </div>
+
+    <h2>MEU CURSO</h2>
+
+    <!-- Informações do curso -->
+    <div class="formulario">
+      <h3>Curso Pré-Vestibular</h3>
+      <p><strong>Período:</strong> Noturno</p>
+      <p><strong>Carga Horária:</strong> 1000h</p>
+      <p><strong>Situação:</strong> <span style="color: green; font-weight: bold;">Em andamento</span></p>
+      <p><strong>Início:</strong> Fev/2025</p>
+      <p><strong>Modalidade:</strong> Presencial</p>
+
+      <h3 style="margin-top: 30px;">Disciplinas do Meu Curso</h3>
+      <div style="display: flex; flex-wrap: wrap; gap: 16px;">
+        <div class="disciplina" style="background: #f2f2f2; border: 1px solid black; border-radius: 8px; padding: 10px; flex: 1 1 230px;">
+          <h4>Língua Portuguesa</h4>
+          <p><strong>Professora:</strong> Ana</p>
+          <p><strong>Carga Horária:</strong> 200h</p>
+          <p><strong>Situação:</strong> Cursando</p>
+        </div>
+        <div class="disciplina" style="background: #f2f2f2; border: 1px solid black; border-radius: 8px; padding: 10px; flex: 1 1 230px;">
+          <h4>Inglês</h4>
+          <p><strong>Professor:</strong> Bruno</p>
+          <p><strong>Carga Horária:</strong> 90h</p>
+          <p><strong>Situação:</strong> Cursando</p>
+        </div>
+        <div class="disciplina" style="background: #f2f2f2; border: 1px solid black; border-radius: 8px; padding: 10px; flex: 1 1 230px;">
+          <h4>Matemática</h4>
+          <p><strong>Professor:</strong> Carlos</p>
+          <p><strong>Carga Horária:</strong> 200h</p>
+          <p><strong>Situação:</strong> Cursando</p>
+        </div>
+        <div class="disciplina" style="background: #f2f2f2; border: 1px solid black; border-radius: 8px; padding: 10px; flex: 1 1 230px;">
+          <h4>Física</h4>
+          <p><strong>Professor:</strong> Douglas</p>
+          <p><strong>Carga Horária:</strong> 90h</p>
+          <p><strong>Situação:</strong> Cursando</p>
+        </div>
+        <div class="disciplina" style="background: #f2f2f2; border: 1px solid black; border-radius: 8px; padding: 10px; flex: 1 1 230px;">
+          <h4>Química</h4>
+          <p><strong>Professor:</strong> Eduardo</p>
+          <p><strong>Carga Horária:</strong> 90h</p>
+          <p><strong>Situação:</strong> Cursando</p>
+        </div>
+        <div class="disciplina" style="background: #f2f2f2; border: 1px solid black; border-radius: 8px; padding: 10px; flex: 1 1 230px;">
+          <h4>Biologia</h4>
+          <p><strong>Professor:</strong> Felipe</p>
+          <p><strong>Carga Horária:</strong> 90h</p>
+          <p><strong>Situação:</strong> Cursando</p>
+        </div>
+        <div class="disciplina" style="background: #f2f2f2; border: 1px solid black; border-radius: 8px; padding: 10px; flex: 1 1 230px;">
+          <h4>Geografia</h4>
+          <p><strong>Professor:</strong> Guilherme</p>
+          <p><strong>Carga Horária:</strong> 90h</p>
+          <p><strong>Situação:</strong> Cursando</p>
+        </div>
+        <div class="disciplina" style="background: #f2f2f2; border: 1px solid black; border-radius: 8px; padding: 10px; flex: 1 1 230px;">
+          <h4>História</h4>
+          <p><strong>Professora:</strong> Heloá</p>
+          <p><strong>Carga Horária:</strong> 90h</p>
+          <p><strong>Situação:</strong> Cursando</p>
+        </div>
+        <div class="disciplina" style="background: #f2f2f2; border: 1px solid black; border-radius: 8px; padding: 10px; flex: 1 1 230px;">
+          <h4>Redação</h4>
+          <p><strong>Professor:</strong> João</p>
+          <p><strong>Carga Horária:</strong> 60h</p>
+          <p><strong>Situação:</strong> Cursando</p>
+        </div>
+      </div>
+
+      <!-- Botões de ação -->
+      <div class="formulario" style="text-align: center; margin-top: 30px;">
+        <button class="botao">Baixar Plano de Curso</button>
+        <button class="botao" style="background-color: red; border: 2px solid black;" onmouseover="this.style.backgroundColor='rgb(196,3,3)'" onmouseout="this.style.backgroundColor='red'">Desistir do Curso</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

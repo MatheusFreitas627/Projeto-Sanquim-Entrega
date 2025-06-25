@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Materiais Didáticos</title>
+  <link rel="stylesheet" href="materiais_didaticos.css">
+</head>
+<body>
+  <div class="painel">
+    <nav class="menu-lateral">
+      <button onclick="window.location.href='cursos_professor.html'"><b>Cursos Que Leciono</b></button>
+      <button onclick="window.location.href='minhas_disciplinas.html'"><b>Minhas Disciplinas</b></button>
+      <button onclick="window.location.href='avisos.html'"><b>Avisos</b></button>
+      <button onclick="window.location.href='outros_professores.html'"> <b> Outros Professores</b></button>
+      <button onclick="window.location.href='lancar_faltas.html'"> <b>Lançar Faltas</b></button>
+        <button onclick="window.location.href='lancar_notas.html'"> <b>Lançar Notas</b></button>
+      <button onclick="window.location.href='secretaria_academica.html'"><b>Secretaria Acadêmica</b></button>
+      <button onclick="window.location.href='plano_aula.html'"><b>Plano de Aula</b></button>
+    </nav>
+    <a href="tela_principal_professor.html">
+  <img src="logo_sanquim.webp" alt="Logo Colégio" class="logo-inferior">
+</a>
+  </div>
+
+  <div class="conteudo">
+    <div class="topo">
+      <button class="sair" onclick="window.location.href='Tela_Login.html'"><b>Sair</b></button>
+
+    </div>
+
+    <h2>Enviar Materiais Didáticos</h2>
+
+    <div class="formulario">
+      <form action="#" method="post" enctype="multipart/form-data">
+        <label for="titulo"><strong>Título do Material:</strong></label>
+        <input type="text" id="titulo" name="titulo" required placeholder="Ex: Aula 03 - Revolução Francesa">
+
+        <label for="descricao"><strong>Descrição:</strong></label>
+        <textarea id="descricao" name="descricao" rows="4" placeholder="Breve descrição do material..."></textarea>
+
+        <label for="arquivo"><strong>Anexar Arquivo:</strong></label>
+        <input type="file" id="arquivo" name="arquivo" required>
+
+        <div class="botao-container">
+          <button class="enviar" type="submit">Enviar Material</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

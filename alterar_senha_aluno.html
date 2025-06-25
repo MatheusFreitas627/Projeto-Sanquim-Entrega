@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Alterar Senha de Aluno</title>
+  <link rel="stylesheet" href="alterar_senha_aluno.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="tela">
+    <div class="painel">
+      <nav class="menu-lateral">
+ <button onclick="window.location.href='cadastro.html'"><b> Cadastrar Novos Usuários</b></button>
+<button onclick="window.location.href='cadastrar_turma.html'"><b> Cadastrar Novas Turmas</b></button>
+<button onclick="window.location.href='cadastrar_curso.html'"><b> Cadastrar Novos Cursos</b></button>
+<button onclick="window.location.href='cadastrar_disciplina.html'"><b> Cadastrar Novas Disciplinas</b></button>
+<button onclick="window.location.href='matricula.html'"><b> Matricular Aluno</b></button>
+<button onclick="window.location.href='aviso_professores.html'"><b> Avisos Professores</b></button>
+<button onclick="window.location.href='aviso_alunos.html'"><b> Aviso Alunos</b></button>
+<button onclick="window.location.href='enalamento_turmas.html'"><b> Enalamento de Aluno/Turmas</b></button>
+<button onclick="window.location.href='gestao_professores.html'"><b> Gestão de Professores</b></button>
+<button onclick="window.location.href='gerenciar_media.html'"><b> Fechamento de Média</b></button>
+<button onclick="window.location.href='gerenciar_frequencia.html'"><b> Gerenciamento de Frequência</b></button>
+<button onclick="window.location.href='plano_aula_coordenador.html'"><b> Plano de Aula</b></button>
+
+      </nav>
+      
+
+ <a href="tela_principal_coordenador.html">
+  <img src="logo_sanquim.webp" alt="Logo Colégio" class="logo-inferior" />
+</a>
+    </div>
+
+    <div class="conteudo">
+      <div class="topo">
+         <button class="sair" onclick="window.location.href='Tela_Login.html'"><b>Sair</b></button>
+      </div>
+
+      <div class="container">
+        <h1>Alterar Senha de Aluno</h1>
+
+        <form class="form-senha">
+          <label>Pesquisar Aluno (Nome ou Matrícula):</label>
+          <input type="text" id="pesquisa" placeholder="Digite o nome ou matrícula..." required>
+
+          <button type="button" class="botao-pesquisar" onclick="pesquisarAluno()">🔍 Pesquisar</button>
+        </form>
+
+        <div id="dadosAluno" style="display: none;">
+          <h2>Dados do Aluno</h2>
+          <p><strong>Nome:</strong> <span id="nomeAluno"></span></p>
+          <p><strong>Matrícula:</strong> <span id="matriculaAluno"></span></p>
+
+          <label>Nova Senha:</label>
+          <input type="password" id="novaSenha" required>
+
+          <button class="botao-alterar" onclick="alterarSenha()">🔑 Alterar Senha</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+<script>
+  // Simulando lista de alunos
+  const alunos = [
+    { nome: "João Silva", matricula: "2023001", senha: "123456" },
+    { nome: "Maria Souza", matricula: "2023002", senha: "abcdef" },
+    { nome: "Lucas Pereira", matricula: "2023003", senha: "senha123" }
+  ];
+
+  let alunoSelecionado = null;
+
+  function pesquisarAluno() {
+    const termo = document.getElementById('pesquisa').value.trim().toLowerCase();
+    alunoSelecionado = alunos.find(a => 
+      a.nome.toLowerCase().includes(termo) || a.matricula.includes(termo)
+    );
+
+    if (alunoSelecionado) {
+      document.getElementById('nomeAluno').textContent = alunoSelecionado.nome;
+      document.getElementById('matriculaAluno').textContent = alunoSelecionado.matricula;
+      document.getElementById('dadosAluno').style.display = 'block';
+    } else {
+      alert('Aluno não encontrado!');
+      document.getElementById('dadosAluno').style.display = 'none';
+    }
+  }
+
+  function alterarSenha() {
+    const novaSenha = document.getElementById('novaSenha').value.trim();
+    if (novaSenha.length < 4) {
+      alert('A senha deve ter pelo menos 4 caracteres.');
+      return;
+    }
+    alunoSelecionado.senha = novaSenha;
+    alert(`Senha do aluno ${alunoSelecionado.nome} alterada com sucesso!`);
+    document.getElementById('novaSenha').value = '';
+  }
+</script>
+
+</body>
+</html>

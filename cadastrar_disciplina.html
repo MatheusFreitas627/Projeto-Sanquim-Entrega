@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro de Disciplina</title>
+  <link rel="stylesheet" href="disciplina.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="painel">
+    <nav class="menu-lateral">
+      <button onclick="window.location.href='cadastro.html'"><b> Cadastrar Novos Usuários</b></button>
+      <button onclick="window.location.href='cadastrar_turma.html'"><b> Cadastrar Novas Turmas</b></button>
+      <button onclick="window.location.href='cadastrar_curso.html'"><b> Cadastrar Novos Cursos</b></button>
+      <button onclick="window.location.href='matricula.html'"><b> Matricular Aluno</b></button>
+      <button onclick="window.location.href='aviso_professores.html'"><b> Avisos Professores</b></button>
+      <button onclick="window.location.href='aviso_alunos.html'"><b> Aviso Alunos</b></button>
+      <button onclick="window.location.href='enalamento_turmas.html'"><b> Enalamento de Aluno/Turmas</b></button>
+      <button onclick="window.location.href='gestao_professores.html'"><b> Gestão de Professores</b></button>
+      <button onclick="window.location.href='gerenciar_media.html'"><b> Fechamento de Média</b></button>
+      <button onclick="window.location.href='gerenciar_frequencia.html'"><b> Gerenciamento de Frequência</b></button>
+<button onclick="window.location.href='plano_aula_coordenador.html'"><b> Plano de Aula</b></button>
+    </nav>
+    <a href="tela_principal_coordenador.html">
+      <img src="logo_sanquim.webp" alt="Logo Colégio" class="logo-inferior" />
+    </a>
+  </div>
+
+  <div class="conteudo">
+    <div class="topo">
+      <button class="sair" onclick="window.location.href='Tela_Login.html'"><b>Sair</b></button>
+    </div>
+
+    <h2>Cadastro de Disciplinas</h2>
+    <form id="formDisciplina" class="formulario">
+      <label for="tipoCurso">Tipo de Curso</label>
+      <select id="tipoCurso" name="tipoCurso" required>
+        <option value="">Selecione</option>
+        <option>Ensino Médio</option>
+        <option>Pré-Vestibular</option>
+        <option>Pré-Vestibulinho</option>
+        <option>Empreendedorismo</option>
+      </select>
+
+      <label for="nome">Nome da Disciplina</label>
+      <input type="text" id="nome" name="nome" required placeholder="Digite o nome da disciplina">
+
+      <label for="carga">Carga Horária</label>
+      <input type="text" id="carga" name="carga" required placeholder="Digite a carga horária">
+
+      <label for="sigla">Sigla</label>
+      <input type="text" id="sigla" name="sigla" required placeholder="Digite a sigla da disciplina">
+
+      <label for="professor">Professor(es)</label>
+      <input type="text" id="professor" name="professor" required placeholder="Digite o(s) professor(es) que lecionará">
+
+      <button type="submit" class="botao">Cadastrar Disciplina</button>
+    </form>
+
+    <div class="usuarios-cadastrados">
+      <h3>Disciplinas Cadastradas</h3>
+      <div id="listaDisciplinas"></div>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById("formDisciplina");
+    const lista = document.getElementById("listaDisciplinas");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const tipo = document.getElementById("tipoCurso").value;
+      const nome = document.getElementById("nome").value;
+      const carga = document.getElementById("carga").value;
+      const sigla = document.getElementById("sigla").value;
+      const professor = document.getElementById("professor").value;
+
+      const item = document.createElement("div");
+      item.className = "usuario-item";
+      item.innerHTML = `<strong>${nome}</strong><br>Curso: ${tipo}<br>Carga Horária: ${carga}<br>Sigla: ${sigla}<br>Professor(es): ${professor}`;
+
+      lista.appendChild(item);
+      form.reset();
+    });
+  </script>
+</body>
+</html>

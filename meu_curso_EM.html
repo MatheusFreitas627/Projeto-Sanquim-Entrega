@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meu Curso</title>
+  <link rel="stylesheet" href="meu_curso.css">
+</head>
+<body>
+  <div class="painel">
+    <nav class="menu-lateral">
+            <button onclick="window.location.href='minha_turma_EM.html'"><b>Minha Turma</b></button>
+          <button onclick="window.location.href='avisos_tela_aluno.html'"><b>Avisos</b></button>
+            <button onclick="window.location.href='meus_professores_EM.html'"><b>Meus Professores</b></button>
+            <button onclick="window.location.href='historico_EM.html'"><b>Histórico</b></button>
+            <button onclick="window.location.href='secretaria_academica_aluno.html'"><b>Secretaria Acadêmica</b></button>
+            <button onclick="window.location.href='materiais_didaticos_aluno.html'"><b>Materiais Didáticos</b></button>
+            <button onclick="window.location.href='faltas_EM.html'"><b>Disciplinas/Faltas</b></button>
+            <button onclick="window.location.href='mural_de_notas_EM.html'"><b>Mural de Notas</b></button>
+    </nav>
+  </div>
+    <a href="tela_principal_aluno.html">
+        <img src="logo_sanquim.webp" alt="Logo Colégio" class="logo-inferior">
+    </a>
+
+  <div class="conteudo">
+    <div class="topo">
+      <button class="sair" onclick="window.location.href='Tela_Login.html'"><b>Sair</b></button>
+    </div>
+
+    <h2>Meu Curso</h2>
+
+<!-- Informações do curso -->
+<div class="formulario">
+  <h3>Ensino Médio</h3>
+  <p><strong>Período:</strong> Matutino</p>
+  <p><strong>Carga Horária:</strong> 1000h</p>
+  <p><strong>Situação:</strong> <span style="color: green; font-weight: bold;">Em andamento</span></p>
+  <p><strong>Início/Série:</strong> Fev/2025 - 1º Ano</p>
+  <p><strong>Modalidade:</strong> Presencial</p>
+
+  <h3 style="margin-top: 30px;">Disciplinas do Meu Curso</h3>
+  <div style="display: flex; flex-wrap: wrap; gap: 16px;">
+    <div style="background: #f2f2f2; border: 1px solid black; border-radius: 8px; padding: 10px; flex: 1 1 230px;">
+      <h4>Lingua portuguesa</h4>
+      <p><strong>Professora:</strong> Ana</p>
+      <p><strong>Carga Horária:</strong> 200h</p>
+      <p><strong>Situação:</strong> Cursando</p>
+    </div>
+    <div style="background: #f2f2f2; border: 1px solid black; border-radius: 8px; padding: 10px; flex: 1 1 230px;">
+      <h4>Inglês</h4>
+      <p><strong>Professor:</strong> Bruno</p>
+      <p><strong>Carga Horária:</strong> 90h</p>
+      <p><strong>Situação:</strong> Cursando</p>
+    </div>
+    <div style="background: #f2f2f2; border: 1px solid black; border-radius: 8px; padding: 10px; flex: 1 1 230px;">
+      <h4>Matemática</h4>
+      <p><strong>Professor:</strong> Carlos</p>
+      <p><strong>Carga Horária:</strong> 200h</p>
+      <p><strong>Situação:</strong> Cursando</p>
+    </div>
+     <div style="background: #f2f2f2; border: 1px solid black; border-radius: 8px; padding: 10px; flex: 1 1 230px;">
+      <h4>Física</h4>
+      <p><strong>Professor:</strong> Douglas</p>
+      <p><strong>Carga Horária:</strong> 90h</p>
+      <p><strong>Situação:</strong> Cursando</p>
+    </div>
+     <div style="background: #f2f2f2; border: 1px solid black; border-radius: 8px; padding: 10px; flex: 1 1 230px;">
+      <h4>Quimíca</h4>
+      <p><strong>Professor:</strong> Eduardo</p>
+      <p><strong>Carga Horária:</strong> 90h</p>
+      <p><strong>Situação:</strong> Cursando</p>
+    </div>
+     <div style="background: #f2f2f2; border: 1px solid black; border-radius: 8px; padding: 10px; flex: 1 1 230px;">
+      <h4>Biologia</h4>
+      <p><strong>Professor:</strong> Felipe</p>
+      <p><strong>Carga Horária:</strong> 90h</p>
+      <p><strong>Situação:</strong> Cursando</p>
+    </div>
+     <div style="background: #f2f2f2; border: 1px solid black; border-radius: 8px; padding: 10px; flex: 1 1 230px;">
+      <h4>Geografia</h4>
+      <p><strong>Professor:</strong> Guilherme</p>
+      <p><strong>Carga Horária:</strong> 90h</p>
+      <p><strong>Situação:</strong> Cursando</p>
+    </div>
+     <div style="background: #f2f2f2; border: 1px solid black; border-radius: 8px; padding: 10px; flex: 1 1 230px;">
+      <h4>História</h4>
+      <p><strong>Professora:</strong> Heloá</p>
+      <p><strong>Carga Horária:</strong> 90h</p>
+      <p><strong>Situação:</strong> Cursando</p>
+    </div>
+     <div style="background: #f2f2f2; border: 1px solid black; border-radius: 8px; padding: 10px; flex: 1 1 230px;">
+      <h4>Educação Física</h4>
+      <p><strong>Professor:</strong> Igor</p>
+      <p><strong>Carga Horária:</strong> 60h</p>
+      <p><strong>Situação:</strong> Cursando</p>
+    </div>
+</div>
+
+    <!-- Botões de ação -->
+    <div class="formulario" style="text-align: center; margin-top: 30px;">
+      <button class="botao">Baixar Plano de Curso</button>
+      <button class="botao" style="background-color: red; border: 2px solid black;" onmouseover="this.style.backgroundColor='rgb(196,3,3)'" onmouseout="this.style.backgroundColor='red'">Solicitar Trancamento</button>
+    </div>
+  </div>
+</body>
+</html>

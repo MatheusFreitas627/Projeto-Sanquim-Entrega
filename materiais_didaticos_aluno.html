@@ -1,0 +1,101 @@
+<!DOCTYPE html> 
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Materiais Didáticos</title>
+  <link rel="stylesheet" href="materiais_didaticos.css">
+  <style>
+    .icones-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 40px;
+      margin-top: 40px;
+    }
+
+    .icone-box {
+      width: 180px;
+      height: 180px;
+      border: 2px solid black;
+      border-radius: 12px;
+      background-color:  #ffc31d; 
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      cursor: pointer;
+      transition: transform 0.2s, background-color 0.2s;
+    }
+
+    .icone-box:hover {
+      background-color: #eeb312;
+      transform: scale(1.05);
+    }
+
+    .icone-box img {
+      width: 64px;
+      height: 64px;
+      margin-bottom: 12px;
+    }
+
+    .icone-box span {
+      font-weight: bold;
+      font-size: 16px;
+      color: #1c1c1c;
+    }
+  </style>
+</head>
+<body>
+  <div class="painel">
+    <nav class="menu-lateral">
+      <button onclick="window.location.href='meu_curso_EM.html'"><b>Meu Curso</b></button>
+      <button onclick="window.location.href='minha_turma_EM.html'"><b>Minha Turma</b></button>
+      <button onclick="window.location.href='avisos_tela_aluno.html'"><b>Avisos</b></button>
+      <button onclick="window.location.href='meus_professores_EM.html'"><b>Meus Professores</b></button>
+      <button onclick="window.location.href='historico_EM.html'"><b>Histórico</b></button>
+      <button onclick="window.location.href='secretaria_academica_aluno.html'"><b>Secretária Acadêmica</b></button>
+      <button onclick="window.location.href='faltas_EM.html'"><b>Disciplinas/Faltas</b></button>
+      <button onclick="window.location.href='mural_de_notas_EM.html'"><b>Mural de Notas</b></button>
+    </nav>
+    <a href="tela_principal_aluno.html">
+        <img src="logo_sanquim.webp" alt="Logo Colégio" class="logo-inferior">
+    </a>
+  </div>
+
+  <div class="conteudo">
+    <div class="topo">
+      <button class="sair" onclick="window.location.href='Tela_Login.html'"><b>Sair</b></button>
+    </div>
+
+    <h2>Materiais Didáticos</h2>
+
+    <div class="formulario">
+      <p style="text-align: center;">Clique em uma das opções abaixo para acessar os conteúdos:</p>
+
+      <div class="icones-container">
+        <div class="icone-box" onclick="window.location.href='#'">
+          <img src="video-aula.png" alt="Vídeo Aulas">
+          <span>Vídeo Aulas</span>
+        </div>
+
+        <div class="icone-box" onclick="window.location.href='#'">
+          <img src="plano de aula.png" alt="Plano de Aula">
+          <span>Plano de Aula</span>
+        </div>
+
+        <div class="icone-box" onclick="window.location.href='#'">
+          <img src="arquivos.png" alt="Arquivos">
+          <span>Arquivos</span>
+        </div>
+
+        <div class="icone-box" onclick="window.location.href='#'">
+          <img src="atividades.png" alt="Atividades">
+          <span>Atividades</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

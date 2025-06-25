@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lançar Notas</title>
+  <link rel="stylesheet" href="lancar_notas.css">
+</head>
+<body>
+  <div class="painel">
+    <nav class="menu-lateral">
+       <button onclick="window.location.href='cursos_professor.html'"><b> Cursos que Leciono</b></button>
+          <button onclick="window.location.href='minhas_disciplinas.html'"><b> Minhas Disciplinas</b></button>
+            <button onclick="window.location.href='avisos.html'"> <b>Avisos</b></button>
+            <button onclick="window.location.href='outros_professores.html'"> <b>Outros Professores</b></button>
+            <button onclick="window.location.href='lancar_faltas.html'"> <b>Lançar Faltas</b></button>
+            <button onclick="window.location.href='secretaria_academica.html'"> <b> Secretaria Acadêmica</b></button>
+            <button onclick="window.location.href='materiais_didaticos.html'"> <b> Materiais Didáticos</b></button>
+            <button onclick="window.location.href='plano_aula.html'"> <b>Plano de Aula</b></button>
+    </nav>
+   <a href="tela_principal_aluno.html">
+        <img src="logo_sanquim.webp" alt="Logo Colégio" class="logo-inferior">
+    </a>
+  </div>
+
+  <div class="conteudo">
+    <div class="topo">
+     <button class="sair" onclick="window.location.href='Tela_Login.html'"><b>Sair</b></button>
+    </div>
+
+    <h2>Lançamento de Notas</h2>
+
+    <div class="formulario">
+      <form action="#" method="post">
+        <table class="tabela-notas">
+          <thead>
+            <tr>
+              <th>Aluno</th>
+              <th>Nota 1</th>
+              <th>Nota 2</th>
+              <th>Nota 3</th>
+              <th>Nota Final</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Gleidson</td>
+              <td><input type="number" min="0" max="10" step="0.1" name="gleidson_n1"></td>
+              <td><input type="number" min="0" max="10" step="0.1" name="gleidson_n2"></td>
+              <td><input type="number" min="0" max="10" step="0.1" name="gleidson_n3"></td>
+              <td><input type="number" min="0" max="10" step="0.1" name="gleidson_nf"></td>
+            </tr>
+            <tr>
+              <td>Ricardo</td>
+              <td><input type="number" min="0" max="10" step="0.1" name="ricardo_n1"></td>
+              <td><input type="number" min="0" max="10" step="0.1" name="ricardo_n2"></td>
+              <td><input type="number" min="0" max="10" step="0.1" name="ricardo_n3"></td>
+              <td><input type="number" min="0" max="10" step="0.1" name="ricardo_nf"></td>
+            </tr>
+            <!-- Repita para os outros alunos -->
+          </tbody>
+        </table>
+
+        <div class="botao-container">
+          <button class="enviar" type="submit">Enviar Notas</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

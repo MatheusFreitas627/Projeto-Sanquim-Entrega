@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Avisos</title>
+  <link rel="stylesheet" href="avisos.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="tela">
+
+    <div class="painel">
+      <nav class="menu-lateral">
+         <button onclick="window.location.href='cursos_professor.html'"><b> Cursos Que Leciono</b></button>
+            <button onclick="window.location.href='minhas_disciplinas.html'"> <b>Minhas Disciplinas</b></button>
+            <button onclick="window.location.href='outros_professores.html'"> <b>Outros Professores</b></button>
+            <button onclick="window.location.href='lancar_faltas.html'"> <b>Lançar Faltas</b></button>
+              <button onclick="window.location.href='lancar_notas.html'"> <b>Lançar Notas</b></button>
+            <button onclick="window.location.href='secretaria_academica.html'"> <b> Secretaria Acadêmica</b></button>
+            <button onclick="window.location.href='materiais_didaticos.html'"><b> Materiais Didáticos</b></button>
+            <button onclick="window.location.href='plano_aula.html'"> <b>Plano de Aula</b></button>
+      </nav>
+      <a href="tela_principal_professor.html">
+  <img src="logo_sanquim.webp" alt="Logo Colégio" class="logo-inferior">
+</a>
+    </div>
+
+    <div class="conteudo">
+      <div class="topo">
+        <button class="sair" onclick="window.location.href='Tela_Login.html'"><b>Sair</b></button>
+
+      </div>
+
+  <h2>Avisos</h2>
+
+      <div class="container">
+    
+          
+            <form id="formAviso" class="form-aviso" style="display: none;">
+              <label for="categoria">Categoria:</label>
+              <select id="categoria" required>
+                <option value="URGENTE">URGENTE</option>
+                <option value="INFORMATIVO">INFORMATIVO</option>
+                <option value="EVENTO">EVENTO</option>
+              </select>
+          
+              <label for="titulo">Título:</label>
+              <input type="text" id="titulo" required>
+          
+              <label for="mensagem">Mensagem:</label>
+              <textarea id="mensagem" rows="3" required></textarea>
+          
+              <button type="submit" class="botao-lido">📌 Adicionar Aviso</button>
+            </form>
+          </div>
+        
+        <div class="aviso-card">
+          <div class="categoria">URGENTE</div>
+          <h3>Prazo para lançamento de notas</h3>
+          <p class="data">Publicado em: 20/06/2025</p>
+          <p>As notas do 2º bimestre devem ser lançadas até o dia <strong>30/06</strong>, às <strong>23h59</strong>. O não cumprimento pode impactar o fechamento do sistema.</p>
+          <button class="botao-lido">✅ Marcar como lido</button>
+        </div>
+
+        <div class="aviso-card">
+          <div class="categoria info">INFORMATIVO</div>
+          <h3>Reunião pedagógica</h3>
+          <p class="data">Publicado em: 18/06/2025</p>
+          <p>Informamos que a próxima reunião pedagógica será realizada no dia <strong>25/06</strong>, às 14h, na sala dos professores.</p>
+          <button class="botao-lido">✅ Marcar como lido</button>
+        </div>
+
+        <div class="aviso-card">
+          <div class="categoria evento">EVENTO</div>
+          <h3>Feira de Ciências</h3>
+          <p class="data">Publicado em: 15/06/2025</p>
+          <p>Os professores estão convidados a participar e orientar alunos na Feira de Ciências que ocorrerá em <strong>05/07</strong>.</p>
+          <button class="botao-lido">✅ Marcar como lido</button>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+
+<script>
+    
+    document.querySelectorAll('.botao-lido').forEach(botao => {
+      botao.addEventListener('click', () => {
+        const card = botao.closest('.aviso-card');
+        card.classList.add('lido');
+        botao.disabled = true;
+        botao.textContent = '✅ Lido';
+      });
+    });
+
+
+
+  document.querySelectorAll('.botao-lido').forEach(botao => {
+    botao.addEventListener('click', () => {
+      const card = botao.closest('.aviso-card');
+      card.classList.add('lido');
+      botao.disabled = true;
+      botao.textContent = '✅ Lido';
+    });
+  });
+
+ 
+  document.getElementById('mostrarFormulario').addEventListener('click', () => {
+    const form = document.getElementById('formAviso');
+    form.style.display = form.style.display === 'none' ? 'block' : 'none';
+  });
+
+  document.getElementById('formAviso').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const categoria = document.getElementById('categoria').value;
+    const titulo = document.getElementById('titulo').value;
+    const mensagem = document.getElementById('mensagem').value;
+
+    const container = document.querySelector('.container');
+
+    const novaDiv = document.createElement('div');
+    novaDiv.className = 'aviso-card';
+    if (categoria === 'INFORMATIVO') novaDiv.innerHTML = `
+      <div class="categoria info">${categoria}</div>`;
+    else if (categoria === 'EVENTO') novaDiv.innerHTML = `
+      <div class="categoria evento">${categoria}</div>`;
+    else novaDiv.innerHTML = `
+      <div class="categoria">${categoria}</div>`;
+
+    const hoje = new Date();
+    const data = hoje.toLocaleDateString('pt-BR');
+
+    novaDiv.innerHTML += `
+      <h3>${titulo}</h3>
+      <p class="data">Publicado em: ${data}</p>
+      <p>${mensagem}</p>
+      <button class="botao-lido">✅ Marcar como lido</button>
+    `;
+
+    container.appendChild(novaDiv);
+
+   
+    this.reset();
+    this.style.display = 'none';
+
+    
+    novaDiv.querySelector('.botao-lido').addEventListener('click', () => {
+      novaDiv.classList.add('lido');
+      const botao = novaDiv.querySelector('.botao-lido');
+      botao.disabled = true;
+      botao.textContent = '✅ Lido';
+    });
+  });
+
+
+  </script>
+  
+</body>
+</html>

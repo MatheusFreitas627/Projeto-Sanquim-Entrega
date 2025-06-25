@@ -1,0 +1,202 @@
+<!DOCTYPE html> 
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mural de Notas</title>
+  <link rel="stylesheet" href="mural_notas.css">
+  <style>
+    table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  margin: 0 auto;
+  table-layout: auto;
+}
+
+th, td {
+  border: 1px solid black;
+  padding: 6px;
+  text-align: center;
+}
+
+th {
+  background-color: #ffc31d;
+  font-weight: bold;
+}
+
+td {
+  background-color: white;
+}
+
+.formulario {
+  margin-top: 30px;
+  width: 100%;
+}
+
+.sair {
+  background-color: red;
+  color: white;
+  border: 2px solid black;
+  padding: 10px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.sair:hover {
+  background-color: rgb(196, 3, 3);
+}
+
+  </style>
+</head>
+<body>
+  <div class="painel">
+    <nav class="menu-lateral">
+      <button onclick="window.location.href='meu_curso_EM.html'"><b>Meu Curso</b></button>
+      <button onclick="window.location.href='minha_turma_EM.html'"><b>Minha Turma</b></button>
+      <button onclick="window.location.href='avisos_tela_aluno.html'"><b>Avisos</b></button>
+      <button onclick="window.location.href='meus_professores_EM.html'"><b>Meus Professores</b></button>
+      <button onclick="window.location.href='historico_EM.html'"><b>Histórico</b></button>
+      <button onclick="window.location.href='secretaria_academica_aluno.html'"><b>Secretária Acadêmica</b></button>
+      <button onclick="window.location.href='materiais_didaticos_aluno.html'"><b>Materiais Didáticos</b></button>
+      <button onclick="window.location.href='faltas_EM.html'"><b>Disciplinas/Faltas</b></button>
+    </nav>
+    <a href="tela_principal_aluno.html">
+        <img src="logo_sanquim.webp" alt="Logo Colégio" class="logo-inferior">
+    </a>
+  </div>
+
+  <div class="conteudo">
+    <div class="topo">
+      <button class="sair" onclick="window.location.href='Tela_Login.html'"><b>Sair</b></button>
+    </div>
+
+    <h2>Mural de Notas</h2>
+
+    <div class="formulario">
+      <table>
+        <thead>
+          <tr>
+            <th rowspan="2">Disciplina</th>
+            <th colspan="2">1º Bimestre</th>
+            <th colspan="2">2º Bimestre</th>
+            <th colspan="2">3º Bimestre</th>
+            <th colspan="2">4º Bimestre</th>
+          </tr>
+          <tr>
+            <th>Avaliação 1</th>
+            <th>Avaliação 2</th>
+            <th>Avaliação 1</th>
+            <th>Avaliação 2</th>
+            <th>Avaliação 1</th>
+            <th>Avaliação 2</th>
+            <th>Avaliação 1</th>
+            <th>Avaliação 2</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><b>Língua Portuguesa</b></td>
+            <td>Prova (8.5)</td>
+            <td>Prova (9.0)</td>
+            <td>Prova (8.0)</td>
+            <td>Redação (7.5)</td>
+            <td>Prova --</td>
+            <td>Seminário --</td>
+            <td>Prova --</td>
+            <td>Prova --</td>
+          </tr>
+          <tr>
+            <td><b>Inglês</b></td>
+            <td>Prova (7.5)</td>
+            <td>Trabalho (8.0)</td>
+            <td>Prova (6.5)</td>
+            <td>Oral (7.0)</td>
+            <td>Prova --</td>
+            <td>Seminário --</td>
+            <td>Pova --</td>
+            <td>Trabalho --</td>
+          </tr>
+          <tr>
+            <td><b>Matemática</b></td>
+            <td>Prova (9.0)</td>
+            <td>Lista (10.0)</td>
+            <td>Prova (7.5)</td>
+            <td>Prova (8.0)</td>
+            <td>Simulado --</td>
+            <td>Prova --</td>
+            <td>Prova --</td>
+            <td>Prova --</td>
+          </tr>
+          <tr>
+            <td><b>Física</b></td>
+            <td>Prova (6.5)</td>
+            <td>Experimento (7.5)</td>
+            <td>Seminário (7.0)</td>
+            <td>Prova (6.0)</td>
+            <td>Prova --</td>
+            <td>Laboratório --</td>
+            <td>Prova --</td>
+            <td>Projeto --</td>
+          </tr>
+          <tr>
+            <td><b>Química</b></td>
+            <td>Prova (7.0)</td>
+            <td>Atividade (8.5)</td>
+            <td>Prova (6.5)</td>
+            <td>Prática (7.5)</td>
+            <td>Prova --</td>
+            <td>Prova --</td>
+            <td>Prova --</td>
+            <td>Seminário --</td>
+          </tr>
+          <tr>
+            <td><b>Biologia</b></td>
+            <td>Prova (8.0)</td>
+            <td>Relatório (8.5)</td>
+            <td>Simulado (7.5)</td>
+            <td>Prova (8.0)</td>
+            <td>Prova --</td>
+            <td>Prova --</td>
+            <td>Prova --</td>
+            <td>Relatório --</td>
+          </tr>
+          <tr>
+            <td><b>Geografia</b></td>
+            <td>Trabalho (9.0)</td>
+            <td>Prova (9.5)</td>
+            <td>Debate (8.0)</td>
+            <td>Prova (8.5)</td>
+            <td>Prova --</td>
+            <td>Prova --</td>
+            <td>Prova --</td>
+            <td>Prova --</td>
+          </tr>
+          <tr>
+            <td><b>História</b></td>
+            <td>Prova (8.5)</td>
+            <td>Trabalho (8.0)</td>
+            <td>Prova (7.5)</td>
+            <td>Debate (7.0)</td>
+            <td>Prova --</td>
+            <td>Seminário --</td>
+            <td>Prova --</td>
+            <td>Seminário --</td>
+          </tr>
+          <tr>
+            <td><b>Educação Física</b></td>
+            <td>Prática (10.0)</td>
+            <td>Prática (9.5)</td>
+            <td>Prática (10.0)</td>
+            <td>Trabalho (9.0)</td>
+            <td>Prática --</td>
+            <td>Prática --</td>
+            <td>Prática --</td>
+            <td>Prática --</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+</html>

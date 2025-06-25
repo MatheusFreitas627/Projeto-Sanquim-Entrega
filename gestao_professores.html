@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gestão de Professores</title>
+  <link rel="stylesheet" href="gestao_professores.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="tela">
+    <div class="painel">
+      <nav class="menu-lateral">
+ <button onclick="window.location.href='cadastro.html'"><b> Cadastrar Novos Usuários</b></button>
+<button onclick="window.location.href='cadastrar_turma.html'"><b> Cadastrar Novas Turmas</b></button>
+<button onclick="window.location.href='cadastrar_curso.html'"><b> Cadastrar Novos Cursos</b></button>
+<button onclick="window.location.href='cadastrar_disciplina.html'"><b> Cadastrar Novas Disciplinas</b></button>
+<button onclick="window.location.href='matricula.html'"><b> Matricular Aluno</b></button>
+<button onclick="window.location.href='aviso_professores.html'"><b> Avisos Professores</b></button>
+<button onclick="window.location.href='aviso_alunos.html'"><b> Aviso Alunos</b></button>
+<button onclick="window.location.href='enalamento_turmas.html'"><b> Enalamento de Aluno/Turmas</b></button>
+<button onclick="window.location.href='gerenciar_media.html'"><b> Fechamento de Média</b></button>
+<button onclick="window.location.href='gerenciar_frequencia.html'"><b> Gerenciamento de Frequência</b></button>
+<button onclick="window.location.href='plano_aula_coordenador.html'"><b> Plano de Aula</b></button>
+      </nav>
+
+ <a href="tela_principal_coordenador.html">
+  <img src="logo_sanquim.webp" alt="Logo Colégio" class="logo-inferior" />
+</a>
+    </div>
+
+    <div class="conteudo">
+      <div class="topo">
+        <button class="sair" onclick="window.location.href='Tela_Login.html'"><b>Sair</b></button>
+      </div>
+
+      <div class="container">
+        <h1>Gestão de Professores</h1>
+        <form class="form-professor">
+          <label for="nome">Nome do Professor:</label>
+          <input type="text" id="nome" placeholder="Nome completo" required />
+
+          <label for="disciplina">Disciplina:</label>
+          <input type="text" id="disciplina" placeholder="Disciplina lecionada" required />
+
+          <label for="email">E-mail:</label>
+          <input type="email" id="email" placeholder="E-mail de contato" required />
+
+          <label for="telefone">Telefone:</label>
+          <input type="tel" id="telefone" placeholder="Telefone para contato" required />
+
+          <label for="turma">Turma:</label>
+          <input type="text" id="turma" placeholder="Turma que leciona" required />
+
+          <label for="curso">Curso:</label>
+          <input type="text" id="curso" placeholder="Curso que leciona" required />
+
+          <button type="submit" class="botao-professor">➕ Cadastrar Professor</button>
+        </form>
+
+        <h2>Lista de Professores</h2>
+        <div id="listaProfessores"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const form = document.querySelector('.form-professor');
+    const lista = document.getElementById('listaProfessores');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const nome = document.getElementById('nome').value;
+      const disciplina = document.getElementById('disciplina').value;
+      const email = document.getElementById('email').value;
+      const telefone = document.getElementById('telefone').value;
+      const turma = document.getElementById('turma').value;
+      const curso = document.getElementById('curso').value;
+
+      const card = document.createElement('div');
+      card.className = 'aviso-card';
+      card.innerHTML = `
+        <h3>Professor: ${nome}</h3>
+        <p>Disciplina: ${disciplina}</p>
+        <p>Email: ${email}</p>
+        <p>Telefone: ${telefone}</p>
+        <p>Turma: ${turma}</p>
+        <p>Curso: ${curso}</p>
+        <button class="botao-lido">✅ Remover</button>
+      `;
+
+      lista.appendChild(card);
+
+      card.querySelector('.botao-lido').addEventListener('click', () => {
+        card.remove();
+      });
+
+      form.reset();
+    });
+  </script>
+</body>
+</html>

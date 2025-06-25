@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Montserrat', sans-serif;
+  background-color: #f5d363;
+}
+
+body {
+  display: flex;
+  flex-direction: row;
+  min-height: 100vh;
+}
+
+.painel {
+    width: 250px;
+    background-color: #ffc31d;
+    padding: 20px;
+    height: 150vh;
+    position: relative;
+    overflow-y: auto;
+}
+
+.menu-lateral button {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+  background-color: #1c8c94;
+  color: white;
+  padding: 10px;
+  border: 2px solid #136d72;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.menu-lateral button:hover {
+  background-color: #157d86;
+}
+
+.logo-inferior {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    width: 230px;
+    height: auto;
+    opacity: 0.9;
+    z-index: 10;
+}
+.conteudo {
+  flex: 1;
+  padding: 40px;
+  background-color: #f7d764;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.topo {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.acao, .sair {
+  font-family: 'Montserrat', sans-serif;
+  padding: 10px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  border: 2px solid;
+}
+
+.acao {
+  background-color: #1c8c94;
+  color: white;
+  border-color: #136d72;
+}
+
+.acao:hover {
+  background-color: #157d86;
+}
+
+.sair {
+  background-color: red;
+  color: white;
+  border-color: black;
+}
+
+.sair:hover {
+  background-color: rgb(196, 3, 3);
+}
+
+h2, h3 {
+  text-align: center;
+  color: #333;
+
+}
+
+h2{
+  font-size: 30px;
+}
+
+.formulario {
+  max-width: 500px;
+  width: 100%;
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+}
+
+label {
+  display: block;
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+input, select {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.botao {
+  background-color: #1c8c94;
+  color: white;
+  padding: 10px;
+  width: 100%;
+  border: none;
+  border-radius: 6px;
+  margin-top: 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.botao:hover {
+  background-color: #157d86;
+}
+
+.usuarios-cadastrados {
+  margin-top: 40px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+  width: 100%;
+  max-width: 500px;
+}
+
+.usuario-item {
+  border-bottom: 1px solid #ccc;
+  padding: 10px 0;
+}

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Avisos para Alunos</title>
+  <link rel="stylesheet" href="avisos.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="tela">
+
+    <div class="painel">
+      <nav class="menu-lateral">
+        <button onclick="window.location.href='meu_curso_EM.html'"><b>Meu Curso</b></button>
+      <button onclick="window.location.href='minha_turma_EM.html'"><b>Minha Turma</b></button>
+      <button onclick="window.location.href='meus_professores_EM.html'"><b>Meus Professores</b></button>
+      <button onclick="window.location.href='historico_EM.html'"><b>Histórico</b></button>
+      <button onclick="window.location.href='secretaria_academica_aluno.html'"><b>Secretaria Acadêmica</b></button>
+      <button onclick="window.location.href='materiais_didaticos_aluno.html'"><b>Materiais Didáticos</b></button>
+      <button onclick="window.location.href='faltas_EM.html'"><b>Disciplinas/Faltas</b></button>
+      <button onclick="window.location.href='mural_de_notas_EM.html'"><b>Mural de Notas</b></button>
+      </nav>
+      <a href="tela_principal_aluno.html">
+        <img src="logo_sanquim.webp" alt="Logo Colégio" class="logo-inferior">
+    </a>
+    </div>
+
+    <div class="conteudo">
+      <div class="topo">
+        <button class="sair" onclick="window.location.href='Tela_Login.html'"><b>Sair</b></button>
+      </div>
+
+      <div class="container">
+        <h2> Avisos</h2>
+
+        <div class="aviso-card">
+          <div class="categoria">INFORMATIVO</div>
+          <h3>Semana de Provas</h3>
+          <p class="data">Publicado em: 20/06/2025</p>
+          <p>A semana de provas começará dia <strong>23/06</strong>.</p>
+          <button class="botao-lido">✅ Marcar como lido</button>
+        </div>
+
+        <div class="aviso-card">
+          <div class="categoria evento">EVENTO</div>
+          <h3>Feira de Ciências</h3>
+          <p class="data">Publicado em: 15/06/2025</p>
+          <p>Os Alunos estão convidados a apresentar seus projetos na Feira de Ciências que ocorrerá em <strong>05/07</strong>.</p>
+          <button class="botao-lido">✅ Marcar como lido</button>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+
+<script>
+    
+    document.querySelectorAll('.botao-lido').forEach(botao => {
+      botao.addEventListener('click', () => {
+        const card = botao.closest('.aviso-card');
+        card.classList.add('lido');
+        botao.disabled = true;
+        botao.textContent = '✅ Lido';
+      });
+    });
+
+
+  // Marcar como lido
+  document.querySelectorAll('.botao-lido').forEach(botao => {
+    botao.addEventListener('click', () => {
+      const card = botao.closest('.aviso-card');
+      card.classList.add('lido');
+      botao.disabled = true;
+      botao.textContent = '✅ Lido';
+    });
+  });
+
+  </script>
+  
+</body>
+</html>

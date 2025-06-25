@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Enalamento de Alunos/Turmas</title>
+  <link rel="stylesheet" href="enalamento.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="tela">
+    <div class="painel">
+      <nav class="menu-lateral">
+     <button onclick="window.location.href='cadastro.html'"><b> Cadastrar Novos Usuários</b></button>
+<button onclick="window.location.href='cadastrar_turma.html'"><b> Cadastrar Novas Turmas</b></button>
+<button onclick="window.location.href='cadastrar_curso.html'"><b> Cadastrar Novos Cursos</b></button>
+<button onclick="window.location.href='cadastrar_disciplina.html'"><b> Cadastrar Novas Disciplinas</b></button>
+<button onclick="window.location.href='matricula.html'"><b> Matricular Aluno</b></button>
+<button onclick="window.location.href='aviso_professores.html'"><b> Avisos Professores</b></button>
+<button onclick="window.location.href='aviso_alunos.html'"><b> Aviso Alunos</b></button>
+<button onclick="window.location.href='gestao_professores.html'"><b> Gestão de Professores</b></button>
+<button onclick="window.location.href='gerenciar_media.html'"><b> Fechamento de Média</b></button>
+<button onclick="window.location.href='gerenciar_frequencia.html'"><b> Gerenciamento de Frequência</b></button>
+<button onclick="window.location.href='plano_aula_coordenador.html'"><b> Plano de Aula</b></button>
+      </nav>
+ <a href="tela_principal_coordenador.html">
+  <img src="logo_sanquim.webp" alt="Logo Colégio" class="logo-inferior" />
+</a>
+    </div>
+
+    <div class="conteudo">
+      <div class="topo">
+        <button class="sair" onclick="window.location.href='Tela_Login.html'"><b>Sair</b></button>
+      </div>
+
+      <div class="container">
+        <h1>Enalamento de Alunos/Turmas</h1>
+        <form class="form-enalamento">
+          <label for="aluno">Aluno:</label>
+          <input type="text" id="aluno" placeholder="Nome do aluno" required />
+
+          <label for="turma">Turma:</label>
+          <input type="text" id="turma" placeholder="Nome da turma" required />
+
+          <label for="serie">Série/Etapa:</label>
+          <input type="text" id="serie" placeholder="Ex: 1º Ano Ensino Médio" required />
+
+          <label for="turno">Turno:</label>
+          <select id="turno" required>
+            <option value="">Selecione</option>
+            <option value="Manhã">Manhã</option>
+            <option value="Tarde">Tarde</option>
+            <option value="Noite">Noite</option>
+          </select>
+
+          <label for="status">Status da Turma:</label>
+          <select id="status" required>
+            <option value="">Selecione</option>
+            <option value="Ativa">Ativa</option>
+            <option value="Lotada">Lotada</option>
+          </select>
+
+          <label for="ano">Ano Letivo:</label>
+          <input type="number" id="ano" placeholder="Ano letivo" required />
+
+          <button type="submit" class="botao-enalamento">➕ Enalar</button>
+        </form>
+
+        <h2>Lista de Enalamentos</h2>
+        <div id="listaEnalamentos"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const form = document.querySelector('.form-enalamento');
+    const lista = document.getElementById('listaEnalamentos');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const aluno = document.getElementById('aluno').value;
+      const turma = document.getElementById('turma').value;
+      const serie = document.getElementById('serie').value;
+      const turno = document.getElementById('turno').value;
+      const status = document.getElementById('status').value;
+      const ano = document.getElementById('ano').value;
+
+      const card = document.createElement('div');
+      card.className = 'aviso-card';
+      card.innerHTML = `
+        <h3>Aluno: ${aluno}</h3>
+        <p>Turma: ${turma}</p>
+        <p>Série/Etapa: ${serie}</p>
+        <p>Turno: ${turno}</p>
+        <p>Status da Turma: ${status}</p>
+        <p>Ano Letivo: ${ano}</p>
+        <button class="botao-lido">✅ Remover</button>
+      `;
+
+      lista.appendChild(card);
+
+      card.querySelector('.botao-lido').addEventListener('click', () => {
+        card.remove();
+      });
+
+      form.reset();
+    });
+  </script>
+</body>
+</html>

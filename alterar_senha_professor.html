@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Alterar Senha - Professor</title>
+  <link rel="stylesheet" href="alterar_senha_professor.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="tela">
+    <div class="painel">
+      <nav class="menu-lateral">
+     <button onclick="window.location.href='cadastro.html'"><b> Cadastrar Novos Usuários</b></button>
+<button onclick="window.location.href='cadastrar_turma.html'"><b> Cadastrar Novas Turmas</b></button>
+<button onclick="window.location.href='cadastrar_curso.html'"><b> Cadastrar Novos Cursos</b></button>
+<button onclick="window.location.href='cadastrar_disciplina.html'"><b> Cadastrar Novas Disciplinas</b></button>
+<button onclick="window.location.href='matricula.html'"><b> Matricular Aluno</b></button>
+<button onclick="window.location.href='aviso_professores.html'"><b> Avisos Professores</b></button>
+<button onclick="window.location.href='aviso_alunos.html'"><b> Aviso Alunos</b></button>
+<button onclick="window.location.href='enalamento_turmas.html'"><b> Enalamento de Aluno/Turmas</b></button>
+<button onclick="window.location.href='gestao_professores.html'"><b> Gestão de Professores</b></button>
+<button onclick="window.location.href='gerenciar_media.html'"><b> Fechamento de Média</b></button>
+<button onclick="window.location.href='gerenciar_frequencia.html'"><b> Gerenciamento de Frequência</b></button>
+<button onclick="window.location.href='plano_aula_coordenador.html'"><b> Plano de Aula</b></button>
+      </nav>
+
+ <a href="tela_principal_coordenador.html">
+  <img src="logo_sanquim.webp" alt="Logo Colégio" class="logo-inferior" />
+</a>
+    </div>
+
+    <div class="conteudo">
+      <div class="topo">
+        <button class="sair" onclick="window.location.href='Tela_Login.html'"><b>Sair</b></button>
+      </div>
+
+      <div class="container">
+        <h1>Alterar Senha de Professor</h1>
+
+        <form class="form-senha">
+          <label>Matrícula ou Login:</label>
+          <input type="text" id="loginProf" placeholder="Digite sua matrícula..." required>
+
+          <button type="button" class="botao-pesquisar" onclick="validarProfessor()">🔍 Verificar</button>
+        </form>
+
+        <div id="dadosProf" style="display: none;">
+          <h2>Prof°, <span id="nomeProf"></span></h2>
+
+          <label>Nova Senha:</label>
+          <input type="password" id="novaSenhaProf" required>
+
+          <button class="botao-alterar" onclick="alterarSenhaProf()">🔑 Alterar Senha</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script>
+ 
+  const professores = [
+    { nome: "Ana Lima", login: "p001", senha: "123456" },
+    { nome: "Carlos Mendes", login: "p002", senha: "abc123" },
+    { nome: "Fernanda Costa", login: "p003", senha: "senha321" }
+  ];
+
+  let professorLogado = null;
+
+  function validarProfessor() {
+    const login = document.getElementById('loginProf').value.trim().toLowerCase();
+    professorLogado = professores.find(p => p.login.toLowerCase() === login);
+
+    if (professorLogado) {
+      document.getElementById('nomeProf').textContent = professorLogado.nome;
+      document.getElementById('dadosProf').style.display = 'block';
+    } else {
+      alert('Professor não encontrado!');
+      document.getElementById('dadosProf').style.display = 'none';
+    }
+  }
+
+  function alterarSenhaProf() {
+    const novaSenha = document.getElementById('novaSenhaProf').value.trim();
+    if (novaSenha.length < 4) {
+      alert('A senha deve ter pelo menos 4 caracteres.');
+      return;
+    }
+    professorLogado.senha = novaSenha;
+    alert(`Senha alterada com sucesso, ${professorLogado.nome}!`);
+    document.getElementById('novaSenhaProf').value = '';
+  }
+</script>
+
+</body>
+</html>

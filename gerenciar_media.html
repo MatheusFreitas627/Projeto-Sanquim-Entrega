@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gerenciamento de Média</title>
+  <link rel="stylesheet" href="gerenciamento_media.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="tela">
+    <div class="painel">
+      <nav class="menu-lateral">
+   <button onclick="window.location.href='cadastro.html'"><b> Cadastrar Novos Usuários</b></button>
+<button onclick="window.location.href='cadastrar_turma.html'"><b> Cadastrar Novas Turmas</b></button>
+<button onclick="window.location.href='cadastrar_curso.html'"><b> Cadastrar Novos Cursos</b></button>
+<button onclick="window.location.href='cadastrar_disciplina.html'"><b> Cadastrar Novas Disciplinas</b></button>
+<button onclick="window.location.href='matricula.html'"><b> Matricular Aluno</b></button>
+<button onclick="window.location.href='aviso_professores.html'"><b> Avisos Professores</b></button>
+<button onclick="window.location.href='aviso_alunos.html'"><b> Aviso Alunos</b></button>
+<button onclick="window.location.href='enalamento_turmas.html'"><b> Enalamento de Aluno/Turmas</b></button>
+<button onclick="window.location.href='gestao_professores.html'"><b> Gestão de Professores</b></button>
+<button onclick="window.location.href='gerenciar_frequencia.html'"><b> Gerenciamento de Frequência</b></button>
+<button onclick="window.location.href='plano_aula_coordenador.html'"><b> Plano de Aula</b></button>
+      </nav>
+ <a href="tela_principal_coordenador.html">
+  <img src="logo_sanquim.webp" alt="Logo Colégio" class="logo-inferior" />
+</a>
+    </div>
+
+    <div class="conteudo">
+      <div class="topo">
+        <button class="sair" onclick="window.location.href='Tela_Login.html'"><b>Sair</b></button>
+      </div>
+
+      <div class="container">
+        <h1>Fechamento de Média</h1>
+        <form class="form-media">
+          <label for="aluno">Nome do Aluno:</label>
+          <input type="text" id="aluno" placeholder="Nome completo do aluno" required />
+
+          <label for="turma">Turma:</label>
+          <input type="text" id="turma" placeholder="Ex: 1º Ano A" required />
+
+          <label for="disciplina">Disciplina:</label>
+          <input type="text" id="disciplina" placeholder="Disciplina" required />
+
+          <label for="nota">Nota:</label>
+          <input type="number" id="nota" placeholder="Ex: 8.5" step="0.01" required />
+
+          <label for="obs">Observação:</label>
+          <textarea id="obs" placeholder="Observações adicionais"></textarea>
+
+          <button type="submit" class="botao-media">➕ Lançar Nota</button>
+        </form>
+
+        <h2>Notas Lançadas</h2>
+        <div id="listaMedias"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const form = document.querySelector('.form-media');
+    const lista = document.getElementById('listaMedias');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const aluno = document.getElementById('aluno').value;
+      const turma = document.getElementById('turma').value;
+      const disciplina = document.getElementById('disciplina').value;
+      const nota = document.getElementById('nota').value;
+      const obs = document.getElementById('obs').value;
+
+      const card = document.createElement('div');
+      card.className = 'aviso-card';
+
+      card.innerHTML = `
+        <h3>Aluno: <span class="valor-aluno">${aluno}</span></h3>
+        <p>Turma: <span class="valor-turma">${turma}</span></p>
+        <p>Disciplina: <span class="valor-disciplina">${disciplina}</span></p>
+        <p>Nota: <span class="valor-nota">${nota}</span></p>
+        <p class="obs-container" style="${obs ? '' : 'display:none'}">Observação: <span class="valor-obs">${obs}</span></p>
+        <button class="botao-editar">✏️ Editar</button>
+        <button class="botao-lido">❌ Remover</button>
+      `;
+
+      lista.appendChild(card);
+
+      // Remover
+      card.querySelector('.botao-lido').addEventListener('click', () => {
+        card.remove();
+      });
+
+      // Editar
+      card.querySelector('.botao-editar').addEventListener('click', () => {
+        editarCard(card);
+      });
+
+      form.reset();
+    });
+
+    function editarCard(card) {
+      const alunoSpan = card.querySelector('.valor-aluno');
+      const turmaSpan = card.querySelector('.valor-turma');
+      const disciplinaSpan = card.querySelector('.valor-disciplina');
+      const notaSpan = card.querySelector('.valor-nota');
+      const obsSpan = card.querySelector('.valor-obs');
+      const obsContainer = card.querySelector('.obs-container');
+
+      const novoAluno = prompt('Editar Nome do Aluno:', alunoSpan.textContent);
+      const novaTurma = prompt('Editar Turma:', turmaSpan.textContent);
+      const novaDisciplina = prompt('Editar Disciplina:', disciplinaSpan.textContent);
+      const novaNota = prompt('Editar Nota:', notaSpan.textContent);
+      const novaObs = prompt('Editar Observação (opcional):', obsSpan ? obsSpan.textContent : "");
+
+      if (novoAluno !== null) alunoSpan.textContent = novoAluno;
+      if (novaTurma !== null) turmaSpan.textContent = novaTurma;
+      if (novaDisciplina !== null) disciplinaSpan.textContent = novaDisciplina;
+      if (novaNota !== null) notaSpan.textContent = novaNota;
+      if (novaObs !== null) {
+        if (novaObs.trim() === "") {
+          obsContainer.style.display = 'none';
+        } else {
+          obsContainer.style.display = 'block';
+          obsSpan.textContent = novaObs;
+        }
+      }
+    }
+  </script>
+</body>
+</html>

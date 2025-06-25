@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Avisos para Professores</title>
+  <link rel="stylesheet" href="aviso_professores.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="tela">
+
+    <div class="painel">
+      <nav class="menu-lateral">
+<button onclick="window.location.href='cadastro.html'"><b> Cadastrar Novos Usuários</b></button>
+<button onclick="window.location.href='cadastrar_turma.html'"><b> Cadastrar Novas Turmas</b></button>
+<button onclick="window.location.href='cadastrar_curso.html'"><b> Cadastrar Novos Cursos</b></button>
+<button onclick="window.location.href='cadastrar_disciplina.html'"><b> Cadastrar Novas Disciplinas</b></button>
+<button onclick="window.location.href='matricula.html'"><b> Matricular Aluno</b></button>
+<button onclick="window.location.href='aviso_alunos.html'"><b> Aviso Alunos</b></button>
+<button onclick="window.location.href='enalamento_turmas.html'"><b> Enalamento de Aluno/Turmas</b></button>
+<button onclick="window.location.href='gestao_professores.html'"><b> Gestão de Professores</b></button>
+<button onclick="window.location.href='gerenciar_media.html'"><b> Fechamento de Média</b></button>
+<button onclick="window.location.href='gerenciar_frequencia.html'"><b> Gerenciamento de Frequência</b></button>
+<button onclick="window.location.href='plano_aula_coordenador.html'"><b> Plano de Aula</b></button>
+
+      </nav>
+       <a href="tela_principal_coordenador.html">
+  <img src="logo_sanquim.webp" alt="Logo Colégio" class="logo-inferior" />
+</a>
+    </div>
+
+    <div class="conteudo">
+      <div class="topo">
+         <button class="sair" onclick="window.location.href='Tela_Login.html'"><b>Sair</b></button>
+      </div>
+
+      <div class="container">
+        <div class="novo-aviso-area">
+            <button id="mostrarFormulario" class="botao-novo">➕ Novo Aviso</button>
+          
+            <form id="formAviso" class="form-aviso" style="display: none;">
+              <label for="categoria">Categoria:</label>
+              <select id="categoria" required>
+                <option value="URGENTE">URGENTE</option>
+                <option value="INFORMATIVO">INFORMATIVO</option>
+                <option value="EVENTO">EVENTO</option>
+              </select>
+          
+              <label for="titulo">Título:</label>
+              <input type="text" id="titulo" required>
+          
+              <label for="mensagem">Mensagem:</label>
+              <textarea id="mensagem" rows="3" required></textarea>
+          
+              <button type="submit" class="botao-lido">📌 Adicionar Aviso</button>
+            </form>
+          </div>
+          
+        <h1> Avisos para Professores</h1>
+
+        <div class="aviso-card">
+          <div class="categoria">URGENTE</div>
+          <h3>Prazo para lançamento de notas</h3>
+          <p class="data">Publicado em: 20/06/2025</p>
+          <p>As notas do 2º bimestre devem ser lançadas até o dia <strong>30/06</strong>, às <strong>23h59</strong>. O não cumprimento pode impactar o fechamento do sistema.</p>
+          <button class="botao-lido">✅ Marcar como lido</button>
+        </div>
+
+        <div class="aviso-card">
+          <div class="categoria info">INFORMATIVO</div>
+          <h3>Reunião pedagógica</h3>
+          <p class="data">Publicado em: 18/06/2025</p>
+          <p>Informamos que a próxima reunião pedagógica será realizada no dia <strong>25/06</strong>, às 14h, na sala dos professores.</p>
+          <button class="botao-lido">✅ Marcar como lido</button>
+        </div>
+
+        <div class="aviso-card">
+          <div class="categoria evento">EVENTO</div>
+          <h3>Feira de Ciências</h3>
+          <p class="data">Publicado em: 15/06/2025</p>
+          <p>Os professores estão convidados a participar e orientar alunos na Feira de Ciências que ocorrerá em <strong>05/07</strong>.</p>
+          <button class="botao-lido">✅ Marcar como lido</button>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+
+<script>
+    
+    document.querySelectorAll('.botao-lido').forEach(botao => {
+      botao.addEventListener('click', () => {
+        const card = botao.closest('.aviso-card');
+        card.classList.add('lido');
+        botao.disabled = true;
+        botao.textContent = '✅ Lido';
+      });
+    });
+
+
+  // Marcar como lido
+  document.querySelectorAll('.botao-lido').forEach(botao => {
+    botao.addEventListener('click', () => {
+      const card = botao.closest('.aviso-card');
+      card.classList.add('lido');
+      botao.disabled = true;
+      botao.textContent = '✅ Lido';
+    });
+  });
+
+  // Mostrar formulário de novo aviso
+  document.getElementById('mostrarFormulario').addEventListener('click', () => {
+    const form = document.getElementById('formAviso');
+    form.style.display = form.style.display === 'none' ? 'block' : 'none';
+  });
+
+  // Adicionar novo aviso
+  document.getElementById('formAviso').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const categoria = document.getElementById('categoria').value;
+    const titulo = document.getElementById('titulo').value;
+    const mensagem = document.getElementById('mensagem').value;
+
+    const container = document.querySelector('.container');
+
+    const novaDiv = document.createElement('div');
+    novaDiv.className = 'aviso-card';
+    if (categoria === 'INFORMATIVO') novaDiv.innerHTML = `
+      <div class="categoria info">${categoria}</div>`;
+    else if (categoria === 'EVENTO') novaDiv.innerHTML = `
+      <div class="categoria evento">${categoria}</div>`;
+    else novaDiv.innerHTML = `
+      <div class="categoria">${categoria}</div>`;
+
+    const hoje = new Date();
+    const data = hoje.toLocaleDateString('pt-BR');
+
+    novaDiv.innerHTML += `
+      <h3>${titulo}</h3>
+      <p class="data">Publicado em: ${data}</p>
+      <p>${mensagem}</p>
+      <button class="botao-lido">✅ Marcar como lido</button>
+    `;
+
+    container.appendChild(novaDiv);
+
+    // Resetar formulário
+    this.reset();
+    this.style.display = 'none';
+
+    // Adicionar função de "Marcar como lido" ao novo botão
+    novaDiv.querySelector('.botao-lido').addEventListener('click', () => {
+      novaDiv.classList.add('lido');
+      const botao = novaDiv.querySelector('.botao-lido');
+      botao.disabled = true;
+      botao.textContent = '✅ Lido';
+    });
+  });
+
+
+  </script>
+  
+</body>
+</html>

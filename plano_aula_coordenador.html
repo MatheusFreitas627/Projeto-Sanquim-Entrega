@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plano de Aula</title>
+  <link rel="stylesheet" href="plano_aula_coordenador.css">
+</head>
+<body>
+  <div class="painel">
+    <nav class="menu-lateral">
+      <button onclick="window.location.href='cadastro.html'"><b> Cadastrar Novos Usuários</b></button>
+<button onclick="window.location.href='cadastrar_turma.html'"><b> Cadastrar Novas Turmas</b></button>
+<button onclick="window.location.href='cadastrar_curso.html'"><b> Cadastrar Novos Cursos</b></button>
+<button onclick="window.location.href='cadastrar_disciplina.html'"><b> Cadastrar Novas Disciplinas</b></button>
+<button onclick="window.location.href='matricula.html'"><b> Matricular Aluno</b></button>
+<button onclick="window.location.href='aviso_professores.html'"><b> Avisos Professores</b></button>
+<button onclick="window.location.href='aviso_alunos.html'"><b> Aviso Alunos</b></button>
+<button onclick="window.location.href='enalamento_turmas.html'"><b> Enalamento de Aluno/Turmas</b></button>
+<button onclick="window.location.href='gestao_professores.html'"><b> Gestão de Professores</b></button>
+<button onclick="window.location.href='gerenciar_media.html'"><b> Fechamento de Média</b></button>
+<button onclick="window.location.href='gerenciar_frequencia.html'"><b> Gerenciamento de Frequência</b></button>
+    </nav>
+    <a href="tela_principal_coordenador.html">
+  <img src="logo_sanquim.webp" alt="Logo Colégio" class="logo-inferior">
+</a>
+  </div>
+
+  <div class="conteudo">
+    <div class="topo">
+      <button class="sair" onclick="window.location.href='Tela_Login.html'"><b>Sair</b></button>
+
+    </div>
+
+    <h2>Inserir Plano de Aula</h2>
+
+    <div class="formulario">
+      <form action="#" method="post" enctype="multipart/form-data">
+        <label for="titulo"><strong>Título do Plano:</strong></label>
+        <input type="text" id="titulo" name="titulo" required placeholder="Ex: Aula sobre Revolução Francesa">
+
+        <label for="data"><strong>Data da Aula:</strong></label>
+        <input type="date" id="data" name="data" required>
+
+        <label for="objetivos"><strong>Objetivos:</strong></label>
+        <textarea id="objetivos" name="objetivos" rows="3" placeholder="Descreva os objetivos da aula..."></textarea>
+
+        <label for="conteudo"><strong>Conteúdo:</strong></label>
+        <textarea id="conteudo" name="conteudo" rows="3" placeholder="Descreva o conteúdo abordado..."></textarea>
+
+        <label for="metodologia"><strong>Metodologia:</strong></label>
+        <textarea id="metodologia" name="metodologia" rows="3" placeholder="Explique a metodologia aplicada..."></textarea>
+
+        <label for="avaliacao"><strong>Critérios de Avaliação:</strong></label>
+        <textarea id="avaliacao" name="avaliacao" rows="3" placeholder="Informe os critérios de avaliação..."></textarea>
+
+        <label for="arquivo"><strong>Anexar Arquivo (opcional):</strong></label>
+        <input type="file" id="arquivo" name="arquivo">
+
+        <div class="botao-container">
+          <button class="enviar" type="submit">Enviar Plano</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
